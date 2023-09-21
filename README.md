@@ -1,119 +1,74 @@
 # ScratchNeuralNet
 A from scratch multi-layer perceptron using only Numpy, trained on UCI Wine
 
-Certainly! Below is a template for a professional README.md file for your MLP (Multilayer Perceptron) project implemented in Python using NumPy. You can customize it with your specific project details:
+# Multi-Layer Perceptron (MLP) Neural Network in Python
 
+![Python](https://img.shields.io/badge/Python-3.x-blue.svg)
+![NumPy](https://img.shields.io/badge/NumPy-1.x-green.svg)
 
-# Multilayer Perceptron (MLP) with NumPy
-
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Python Version](https://img.shields.io/badge/python-3.7%2B-blue.svg)](https://www.python.org/downloads/release)
-[![NumPy Version](https://img.shields.io/badge/numpy-1.19%2B-blue.svg)](https://numpy.org/)
-
-A Python implementation of a Multilayer Perceptron (MLP) using NumPy, a simple and customizable neural network for various machine learning tasks.
+A simple implementation of a Multi-Layer Perceptron (MLP) neural network in Python using the NumPy library.
 
 ## Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [MLP Architecture](#mlp-architecture)
-- [Dependencies](#dependencies)
-- [License](#license)
+
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Documentation](#documentation)
+6. [License](#license)
 
 ## Introduction
 
-This project provides a basic implementation of a Multilayer Perceptron (MLP) using only the NumPy library. MLP is a type of feedforward neural network that can be used for various machine learning tasks, such as classification and regression.
+This MLP neural network implementation is designed to provide a basic framework for building and training neural networks. It uses the Python programming language and the NumPy library for numerical computations. The code is organized into a Python class (`MLP`) that allows you to create, train, and evaluate MLP models.
+
+    > all algorithims for this model were taken from Frank Rosenblatt, the origonal developer of the MLP back in 1958 when he published his paper and the "Perceptron"
 
 ## Features
 
-- A flexible and customizable MLP implementation.
-- Support for variable input and output dimensions.
-- Multiple activation functions, including ReLU and Sigmoid.
-- Mini-batch gradient descent for training.
-- Example code for training and using the MLP for common tasks.
+- Implementation of a feedforward MLP neural network.
+- Support for customizing the number of hidden nodes, learning rate, and input/target data.
+- Sigmoid activation function for hidden layers and softmax for output layer.
+- Training method for iteratively updating weights using forward and backward passes.
+- Evaluation methods to calculate the sum of square errors and accuracy.
+- Easy-to-use interface for training and testing neural networks.
 
 ## Installation
 
-1. Clone this repository:
+0. Clone or download the repository:
+
    ```bash
-   git clone https://github.com/your-username/your-mlp-repo.git
-   cd your-mlp-repo
+   git clone https://github.com/yourusername/mlp-neural-network.git
    ```
-
-2. Create a virtual environment (optional but recommended):
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows, use: venv\Scripts\activate
-   ```
-
-3. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## Usage
-
-To train and use the MLP, you can refer to the example notebooks provided in the `examples/` directory. These notebooks demonstrate how to set up and train the MLP for various tasks.
+1. Navigate to project 
+    ```bash
+    cd mlp-neural-network
+    ```
+2. Install numpy 
+    ```bash
+    pip install numpy
+    ```
+    
+## Usage 
+You can use the MLP class in your Python projects to create, train, and evaluate MLP neural networks. Here's a simple example:
 
 ```python
-# Example code for creating and training an MLP
+# Import the MLP class
 from mlp import MLP
 
-# Initialize the MLP
-mlp = MLP(input_size=64, hidden_sizes=[128, 64], output_size=10)
+# Define your input and target data
+inputs = [...]  # Your input data
+targets = [...]  # Your target data
 
-# Load your data
-X_train, y_train, X_test, y_test = load_data()
+# Create an MLP instance
+mlp = MLP(inputs, targets, num_hidden_nodes=64, learning_rate=0.01)
 
 # Train the MLP
-mlp.train(X_train, y_train, learning_rate=0.01, num_epochs=100, batch_size=32)
+mlp.train()
 
-# Make predictions
-predictions = mlp.predict(X_test)
+# Evaluate the model
+sse = mlp.sum_of_square_errors()
+accuracy = mlp.accuracy(val_inputs, val_targets)
+
+print(f"Sum of Square Errors: {sse}")
+print(f"Accuracy: {accuracy}")
 ```
-
-## MLP Architecture
-
-The MLP consists of multiple layers, including an input layer, one or more hidden layers, and an output layer. The forward pass and backward pass (backpropagation) are implemented using standard neural network equations:
-
-**Forward Pass:**
-
-\[
-\begin{align*}
-z^{(l)} &= a^{(l-1)}W^{(l)} + b^{(l)} \\
-a^{(l)} &= \sigma(z^{(l)})
-\end{align*}
-\]
-
-Where:
-- \(a^{(l)}\) is the activation of layer \(l\).
-- \(W^{(l)}\) and \(b^{(l)}\) are the weight and bias matrices for layer \(l\).
-- \(\sigma\) is the activation function (e.g., ReLU or Sigmoid).
-
-**Backward Pass (Gradient Descent):**
-
-\[
-\begin{align*}
-\delta^{(L)} &= \nabla_a J \odot \sigma'(z^{(L)}) \\
-\delta^{(l)} &= \delta^{(l+1)}W^{(l+1)T} \odot \sigma'(z^{(l)})
-\end{align*}
-\]
-
-Where:
-- \(\delta^{(l)}\) is the error in layer \(l\).
-- \(J\) is the loss function.
-- \(\sigma'\) is the derivative of the activation function.
-- \(\nabla_a J\) is the gradient of the loss with respect to the activations.
-
-## Dependencies
-
-- Python 3.7+
-- NumPy 1.19+
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-
-Make sure to replace the placeholders with your actual project details, such as the GitHub repository link, your username, and any specific details related to your MLP implementation. Additionally, you can customize the installation and usage sections to match the structure of your project and provide more detailed instructions as needed.
