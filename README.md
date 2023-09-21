@@ -10,18 +10,22 @@ A simple implementation of a Multi-Layer Perceptron (MLP) neural network in Pyth
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [Features](#features)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [Documentation](#documentation)
-6. [License](#license)
+- [ScratchNeuralNet](#scratchneuralnet)
+- [Multi-Layer Perceptron (MLP) Neural Network in Python](#multi-layer-perceptron-mlp-neural-network-in-python)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Convergence](#convergence)
 
 ## Introduction
 
 This MLP neural network implementation is designed to provide a basic framework for building and training neural networks. It uses the Python programming language and the NumPy library for numerical computations. The code is organized into a Python class (`MLP`) that allows you to create, train, and evaluate MLP models.
 
-    > all algorithims for this model were taken from Frank Rosenblatt, the origonal developer of the MLP back in 1958 when he published his paper and the "Perceptron"
+    All algorithims for this model were taken from Frank Rosenblatt, the developer of the MLP back in 1958 when he published his paper about the "Perceptron".
+    
+<img href= "" alt="results from training">
 
 ## Features
 
@@ -72,3 +76,11 @@ accuracy = mlp.accuracy(val_inputs, val_targets)
 print(f"Sum of Square Errors: {sse}")
 print(f"Accuracy: {accuracy}")
 ```
+## Convergence
+Thanks to the beauty of mathematics, this stochastic process is still proven to 
+converge every single time! A quantitative proof, while not symbolic, aligns with the 
+previous statment and displays the convergence of my implementation on UCI Wine. Bellow 
+is a graph of the sum of square errors (SSE) over the epoch the model is trained on. I 
+hope this enstils a sense of aw like it does me!
+
+<img src="image-url-here" alt="sss over epoch" width="600" height="300">
