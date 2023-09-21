@@ -83,4 +83,4 @@ previous statment and displays the convergence of my implementation on UCI Wine.
 is a graph of the sum of square errors (SSE) over the epoch the model is trained on. I 
 hope this enstils a sense of aw like it does me!
 
-<img src="image-url-here" alt="sss over epoch" width="600" height="300">
+<img src="https://github.com/lukeaal/ScratchNeuralNet/blob/main/media/SSE_Epoch.jpg" alt="sse over epoch" width="600" height="300">
