@@ -25,7 +25,6 @@ This MLP neural network implementation is designed to provide a basic framework 
 
     All algorithims for this model were taken from Frank Rosenblatt, the developer of the MLP back in 1958 when he published his paper about the "Perceptron".
     
-<img href= "" alt="results from training">
 
 ## Features
 
